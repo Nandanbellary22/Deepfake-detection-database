@@ -2,180 +2,127 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Report History</title>
-
-    <!-- Bootstrap -->
+    <title>History | Deepfake Detection</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet">
 
-    <!-- Font Awesome -->
-
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- CSS -->
-
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
-
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand fw-bold" href="/dashboard">
+            <i class="fa-solid fa-shield-halved"></i>
+            Deepfake Detection
+        </a>
 
-        <div class="container">
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <a class="navbar-brand fw-bold"
-               href="/">
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
 
-                <i class="fa-solid fa-shield-halved"></i>
+                <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="/upload"><i class="fa-solid fa-upload"></i> Upload</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/history"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+                <li class="nav-item"><a class="nav-link" href="/analytics"><i class="fa-solid fa-chart-column"></i> Analytics</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin"><i class="fa-solid fa-user-shield"></i> Admin</a></li>
+                <li class="nav-item"><a class="nav-link logout-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
 
-                Deepfake Detection System
+            </ul>
+        </div>
 
-            </a>
+    </div>
+</nav>
 
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#menu">
+<section class="page-header">
+    <div class="container text-center">
 
-                <span class="navbar-toggler-icon"></span>
+        <span class="page-badge">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Report Tracking
+        </span>
 
-            </button>
+        <h1>
+            Submitted Reports History
+        </h1>
 
-            <div class="collapse navbar-collapse"
-                 id="menu">
+        <p>
+            View uploaded media reports, verification status, and database records.
+        </p>
 
-                <ul class="navbar-nav ms-auto">
+    </div>
+</section>
 
-                    <li class="nav-item">
+<section class="dashboard-section pt-4">
 
-                        <a class="nav-link"
-                           href="/dashboard">
+    <div class="container">
 
-                            Dashboard
+        <div class="premium-panel mb-4">
 
-                        </a>
+            <form method="GET"
+                  action="/history">
 
-                    </li>
+                <div class="row g-3 align-items-center">
 
-                    <li class="nav-item">
+                    <div class="col-md-9">
 
-                        <a class="nav-link"
-                           href="/upload">
+                        <input type="text"
+                               class="form-control"
+                               name="search"
+                               placeholder="Search by report title, status, or media type">
 
-                            Upload
+                    </div>
 
-                        </a>
+                    <div class="col-md-3">
 
-                    </li>
+                        <button class="btn-submit"
+                                type="submit">
 
-                    <li class="nav-item">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Search
 
-                        <a class="nav-link active"
-                           href="/history">
+                        </button>
 
-                            History
+                    </div>
 
-                        </a>
+                </div>
 
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link"
-                           href="/analytics">
-
-                            Analytics
-
-                        </a>
-
-                    </li>
-
-                </ul>
-
-            </div>
+            </form>
 
         </div>
 
-    </nav>
-
-    <!-- HISTORY SECTION -->
-
-    <section class="dashboard-section">
-
-        <div class="container">
-            <!-- SEARCH BAR -->
-
-<div class="row mb-4">
-
-    <div class="col-lg-6 mx-auto">
-
-        <form method="GET"
-              action="/history">
-
-            <div class="input-group">
-
-                <input type="text"
-                       class="form-control"
-                       name="search"
-                       placeholder="Search by title, status, media type">
-
-                <button class="btn btn-primary"
-                        type="submit">
-
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
-                    Search
-
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
-
-            <h2 class="text-center mb-5">
-
-                <i class="fa-solid fa-clock-rotate-left"></i>
-
-                Submitted Reports History
-
-            </h2>
+        <div class="premium-panel">
 
             <div class="table-responsive">
 
-                <table class="table table-dark table-hover">
+                <table class="table table-hover align-middle">
 
-                    <thead>
+                    <thead class="table-dark">
 
                         <tr>
-
-                            <th>ID</th>
-
+                            <th>Report ID</th>
                             <th>Title</th>
-
                             <th>Description</th>
-
                             <th>Media Type</th>
-
                             <th>Status</th>
-
                             <th>Upload Date</th>
-
                         </tr>
 
                     </thead>
@@ -185,27 +132,50 @@
                         {% for report in reports %}
 
                         <tr>
-
-                            <td>{{ report[0] }}</td>
-
-                            <td>{{ report[1] }}</td>
-
-                            <td>{{ report[2] }}</td>
-
-                            <td>{{ report[5] }}</td>
-
                             <td>
-
-                                <span class="badge bg-warning text-dark">
-
-                                    {{ report[3] }}
-
-                                </span>
-
+                                #DF{{ report[0] }}
                             </td>
 
-                            <td>{{ report[4] }}</td>
+                            <td>
+                                {{ report[1] }}
+                            </td>
 
+                            <td>
+                                {{ report[2] }}
+                            </td>
+
+                            <td>
+                                <span class="badge bg-primary">
+                                    {{ report[5] }}
+                                </span>
+                            </td>
+
+                            <td>
+                                {% if report[3] == 'Fake' %}
+                                    <span class="badge bg-danger">Fake</span>
+                                {% elif report[3] == 'Real' %}
+                                    <span class="badge bg-success">Real</span>
+                                {% elif report[3] == 'Under Investigation' %}
+                                    <span class="badge bg-info">Under Investigation</span>
+                                {% else %}
+                                    <span class="badge bg-warning text-dark">Pending</span>
+                                {% endif %}
+                            </td>
+
+                            <td>
+                                {{ report[4] }}
+                            </td>
+                        </tr>
+
+                        {% else %}
+
+                        <tr>
+                            <td colspan="6"
+                                class="text-center text-muted py-4">
+
+                                No reports found.
+
+                            </td>
                         </tr>
 
                         {% endfor %}
@@ -218,12 +188,20 @@
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- JS -->
+</section>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<footer class="footer">
+    <div class="container text-center">
+        <p class="mb-0">
+            © 2026 Deepfake Detection Report System
+        </p>
+    </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>
