@@ -1,0 +1,619 @@
+/* =========================================
+   GOOGLE FONT
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: linear-gradient(to bottom right, #f8fbff, #eef4ff);
+    color: #1e293b;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: #dbeafe;
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(#2563eb, #7c3aed);
+    border-radius: 10px;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar{
+    background: rgba(15, 23, 42, 0.92) !important;
+    backdrop-filter: blur(12px);
+    padding: 16px 0;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    animation: navbarFade 1s ease;
+}
+
+@keyframes navbarFade{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar-brand{
+    color: white !important;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand i{
+    color: #60a5fa;
+    margin-right: 8px;
+}
+
+.nav-link{
+    color: #f8fafc !important;
+    margin-left: 14px;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 8px 16px !important;
+    border-radius: 12px;
+}
+
+.nav-link:hover{
+    background: rgba(255,255,255,0.08);
+    color: #60a5fa !important;
+    transform: translateY(-2px);
+}
+
+.nav-link.active{
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white !important;
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero-section{
+    background:
+        linear-gradient(rgba(15,23,42,0.8),
+        rgba(37,99,235,0.75)),
+        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');
+
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before{
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    top: -150px;
+    right: -150px;
+    animation: floatCircle 6s infinite alternate;
+}
+
+@keyframes floatCircle{
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(30px);
+    }
+}
+
+.hero-section h1{
+    font-size: 65px;
+    font-weight: 800;
+    line-height: 1.3;
+    animation: fadeUp 1s ease;
+}
+
+.hero-section p{
+    max-width: 800px;
+    margin: auto;
+    margin-top: 25px;
+    font-size: 20px;
+    color: #e2e8f0;
+    animation: fadeUp 1.3s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-image{
+    margin-top: 50px;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    transition: 0.5s ease;
+}
+
+.hero-image:hover{
+    transform: scale(1.02);
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn-custom{
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    border: none;
+    color: white;
+    padding: 14px 34px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.4s ease;
+    box-shadow: 0 10px 25px rgba(37,99,235,0.35);
+}
+
+.btn-custom:hover{
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(124,58,237,0.45);
+    color: white;
+}
+
+.btn-submit{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.4s ease;
+}
+
+.btn-submit:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(37,99,235,0.35);
+}
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.feature-card{
+    border: none;
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    padding: 40px 25px;
+    transition: 0.5s ease;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.feature-card:hover{
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(37,99,235,0.18);
+}
+
+.icon-box{
+    width: 90px;
+    height: 90px;
+    margin: auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: white;
+    margin-bottom: 20px;
+    transition: 0.5s ease;
+}
+
+.feature-card:hover .icon-box{
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* =========================================
+   WORKFLOW SECTION
+========================================= */
+
+.workflow-section{
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    position: relative;
+    overflow: hidden;
+}
+
+.workflow-box{
+    padding: 35px;
+    transition: 0.4s ease;
+}
+
+.workflow-box:hover{
+    transform: translateY(-10px);
+}
+
+.workflow-icon{
+    font-size: 60px;
+    color: #60a5fa;
+    transition: 0.4s ease;
+}
+
+.workflow-box:hover .workflow-icon{
+    transform: scale(1.15);
+    color: white;
+}
+
+/* =========================================
+   FORM SECTION
+========================================= */
+
+.form-container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(rgba(15,23,42,0.85),
+        rgba(37,99,235,0.75)),
+        url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1600&auto=format&fit=crop');
+
+    background-size: cover;
+    background-position: center;
+
+    padding: 40px;
+}
+
+.form-card{
+    width: 100%;
+    max-width: 480px;
+
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+
+    border-radius: 28px;
+    padding: 45px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+
+    animation: fadeUp 1s ease;
+}
+
+.form-card h2{
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.form-control,
+.form-select{
+    border-radius: 14px;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    transition: 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color: #2563eb;
+    box-shadow: 0 0 15px rgba(37,99,235,0.2);
+}
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard-section{
+    padding: 80px 0;
+}
+
+.dashboard-card{
+    padding: 35px;
+    border-radius: 24px;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s ease;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+}
+
+.dashboard-card::before{
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    top: -40px;
+    right: -40px;
+}
+
+.dashboard-card:hover{
+    transform: translateY(-10px) scale(1.02);
+}
+
+.bg-blue{
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+.bg-purple{
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+
+.bg-green{
+    background: linear-gradient(135deg, #059669, #047857);
+}
+
+/* =========================================
+   GENERAL CARDS
+========================================= */
+
+.card{
+    border: none;
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+    transition: 0.4s ease;
+}
+
+.card:hover{
+    transform: translateY(-4px);
+}
+
+/* =========================================
+   TABLES
+========================================= */
+
+.table{
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.table thead{
+    background: #0f172a;
+    color: white;
+}
+
+.table-hover tbody tr{
+    transition: 0.3s ease;
+}
+
+.table-hover tbody tr:hover{
+    background: #eff6ff;
+    transform: scale(1.01);
+}
+
+/* =========================================
+   BADGES
+========================================= */
+
+.badge{
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* =========================================
+   ALERTS
+========================================= */
+
+.alert{
+    border: none;
+    border-radius: 18px;
+    padding: 18px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+    background: #0f172a;
+    color: white;
+    padding: 22px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+/* =========================================
+   FLOATING ANIMATION
+========================================= */
+
+.feature-card,
+.dashboard-card,
+.card,
+.form-card{
+    animation: cardFade 0.9s ease;
+}
+
+@keyframes cardFade{
+    from{
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width: 992px){
+
+    .hero-section h1{
+        font-size: 48px;
+    }
+
+    .hero-section p{
+        font-size: 18px;
+    }
+}
+
+@media(max-width: 768px){
+
+    .hero-section{
+        padding: 100px 20px;
+    }
+
+    .hero-section h1{
+        font-size: 38px;
+    }
+
+    .hero-section p{
+        font-size: 16px;
+    }
+
+    .dashboard-card{
+        text-align: center;
+    }
+
+    .form-card{
+        padding: 35px 25px;
+    }
+}
+
+/* =========================================
+   ANALYTICS DASHBOARD CARDS
+========================================= */
+
+.dashboard-card {
+
+    background: linear-gradient(
+        135deg,
+        #16213e,
+        #0f3460
+    );
+
+    border: none;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    color: white;
+
+    transition: 0.4s ease;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.25);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+/* Hover Animation */
+
+.dashboard-card:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* Icon Styling */
+
+.dashboard-card i {
+
+    color: #00d4ff;
+
+    margin-bottom: 15px;
+
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+/* Number Styling */
+
+.dashboard-card h3 {
+
+    font-size: 3rem;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    margin-bottom: 10px;
+}
+
+/* Text Styling */
+
+.dashboard-card p {
+
+    font-size: 1.1rem;
+
+    color: #dbeafe;
+
+    letter-spacing: 1px;
+}
+
+/* Floating Animation */
+
+@keyframes floatIcon {
+
+    0% {
+
+        transform: translateY(0px);
+    }
+
+    50% {
+
+        transform: translateY(-8px);
+    }
+
+    100% {
+
+        transform: translateY(0px);
+    }
+}

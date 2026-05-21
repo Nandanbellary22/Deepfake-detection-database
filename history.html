@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Report History</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold"
+               href="/">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Deepfake Detection System
+
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                 id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/dashboard">
+
+                            Dashboard
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/upload">
+
+                            Upload
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active"
+                           href="/history">
+
+                            History
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/analytics">
+
+                            Analytics
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HISTORY SECTION -->
+
+    <section class="dashboard-section">
+
+        <div class="container">
+            <!-- SEARCH BAR -->
+
+<div class="row mb-4">
+
+    <div class="col-lg-6 mx-auto">
+
+        <form method="GET"
+              action="/history">
+
+            <div class="input-group">
+
+                <input type="text"
+                       class="form-control"
+                       name="search"
+                       placeholder="Search by title, status, media type">
+
+                <button class="btn btn-primary"
+                        type="submit">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+            <h2 class="text-center mb-5">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                Submitted Reports History
+
+            </h2>
+
+            <div class="table-responsive">
+
+                <table class="table table-dark table-hover">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Title</th>
+
+                            <th>Description</th>
+
+                            <th>Media Type</th>
+
+                            <th>Status</th>
+
+                            <th>Upload Date</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for report in reports %}
+
+                        <tr>
+
+                            <td>{{ report[0] }}</td>
+
+                            <td>{{ report[1] }}</td>
+
+                            <td>{{ report[2] }}</td>
+
+                            <td>{{ report[5] }}</td>
+
+                            <td>
+
+                                <span class="badge bg-warning text-dark">
+
+                                    {{ report[3] }}
+
+                                </span>
+
+                            </td>
+
+                            <td>{{ report[4] }}</td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JS -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

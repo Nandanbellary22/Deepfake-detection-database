@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Deepfake Detection System</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold"
+               href="/">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Deepfake Detection
+
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                 id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active"
+                           href="/">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/login">
+
+                            Login
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="/register">
+
+                            Register
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero-section">
+
+        <div class="container">
+
+            <h1 class="display-4 fw-bold">
+
+                AI-Powered Deepfake Detection Platform
+
+            </h1>
+
+            <p class="lead mt-4">
+
+                Report suspicious media, analyze deepfake
+                content, and support secure cyber investigations.
+
+            </p>
+
+            <a href="/upload"
+               class="btn btn-custom btn-lg mt-3">
+
+                <i class="fa-solid fa-upload"></i>
+
+                Report Suspicious Media
+
+            </a>
+
+            <!-- HERO IMAGE -->
+
+            <div class="mt-5">
+
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+                     class="img-fluid rounded shadow-lg hero-image">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="container my-5">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+
+                Platform Features
+
+            </h2>
+
+            <p class="text-muted">
+
+                Smart cybersecurity workflow for media verification
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- CARD 1 -->
+
+            <div class="col-md-4">
+
+                <div class="card feature-card h-100 text-center p-4">
+
+                    <div class="icon-box mb-3">
+
+                        <i class="fa-solid fa-user-shield"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Secure Reporting
+
+                    </h4>
+
+                    <p>
+
+                        Upload suspicious videos, images,
+                        and audio securely through encrypted workflows.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+
+            <div class="col-md-4">
+
+                <div class="card feature-card h-100 text-center p-4">
+
+                    <div class="icon-box mb-3">
+
+                        <i class="fa-solid fa-microchip"></i>
+
+                    </div>
+
+                    <h4>
+
+                        AI Detection
+
+                    </h4>
+
+                    <p>
+
+                        Simulated AI-generated probability scores
+                        for fake media detection analysis.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+
+            <div class="col-md-4">
+
+                <div class="card feature-card h-100 text-center p-4">
+
+                    <div class="icon-box mb-3">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Analytics Dashboard
+
+                    </h4>
+
+                    <p>
+
+                        Track trends, suspicious activity,
+                        and media verification statistics.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- WORKFLOW -->
+
+    <section class="workflow-section py-5">
+
+        <div class="container">
+
+            <div class="text-center text-white mb-5">
+
+                <h2 class="fw-bold">
+
+                    System Workflow
+
+                </h2>
+
+            </div>
+
+            <div class="row text-center text-white">
+
+                <div class="col-md-3">
+
+                    <div class="workflow-box">
+
+                        <i class="fa-solid fa-upload workflow-icon"></i>
+
+                        <h5 class="mt-3">
+
+                            Upload Media
+
+                        </h5>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="workflow-box">
+
+                        <i class="fa-solid fa-magnifying-glass workflow-icon"></i>
+
+                        <h5 class="mt-3">
+
+                            AI Analysis
+
+                        </h5>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="workflow-box">
+
+                        <i class="fa-solid fa-user-check workflow-icon"></i>
+
+                        <h5 class="mt-3">
+
+                            Admin Review
+
+                        </h5>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="workflow-box">
+
+                        <i class="fa-solid fa-chart-pie workflow-icon"></i>
+
+                        <h5 class="mt-3">
+
+                            Analytics
+
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container text-center">
+
+            <p class="mb-0">
+
+                © 2026 Deepfake Detection Report System
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
